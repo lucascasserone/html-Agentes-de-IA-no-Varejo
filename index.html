@@ -1,558 +1,309 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Agêntica no Varejo | Marco Lucas Casserone</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!--
+    CHANGELOG (24-02-2026) – v2 Visual
+    - Navy mais profundo e menos brilho no hero
+    - Headline sólida (sem gradiente no texto) + sublinhado premium nos termos-chave
+    - Chips com micro-borda dourada e contraste melhorado
+    - CTA secundário com aparência ativa
+    - Navbar sólida (menos glass) para estabilidade
+    - Mantidos CRO, CTAs, SEO, A11y e simulador
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casserone Strategy | IA, Dados e Performance Executiva</title>
+  <meta name="description" content="Transformamos dados em decisões que aumentam margem, reduzem custos e aceleram crescimento. Estratégia, performance e IA agêntica para líderes que precisam escalar com precisão." />
+  <link rel="canonical" href="https://www.seudominio.com/" />
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate 900 */
-            color: #e2e8f0; /* Slate 200 */
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6; 
-            border-radius: 4px;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Casserone Strategy | IA, Dados e Performance Executiva" />
+  <meta property="og:description" content="Estratégia, performance e IA agêntica para aumentar margem, reduzir perdas e acelerar crescimento." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.seudominio.com/" />
+  <meta property="og:image" content="https://www.seudominio.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        /* Chart Container Utilities */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Flowchart Connector Styles (Pure CSS, No SVG) */
-        .flow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
-        }
-        @media (min-width: 768px) {
-            .flow-arrow {
-                transform: rotate(-90deg); /* Rotate for desktop horizontal layout if needed, though vertical stack is safer for mobile first */
-                margin: 0;
-            }
-            .desktop-horizontal-flow .flow-arrow {
-                transform: rotate(0deg);
-            }
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
 
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(to right, #22d3ee, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-        /* Card Hover Effect */
-        .hover-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.1), 0 4px 6px -2px rgba(6, 182, 212, 0.05);
-            border-color: #38bdf8;
-        }
-    </style>
+  <style>
+    :root {
+      /* Executive Trust – versão madura */
+      --bg-dark: #0A0F1A;          /* navy profundo */
+      --text-main: #E8ECF2;        /* quase-branco suave */
+      --text-dim: #AAB6C5;         /* texto secundário */
+      --neutral-1: #151E2B;        /* cartões/vidro base */
+      --neutral-2: #233047;        /* bordas e linhas */
+      --neutral-3: #0F1622;        /* navbar/fundo sólido */
 
-    <!-- Source Material Analysis & Plan -->
-    <!--
-    SOURCE MATERIAL: "IA Agêntica no Varejo" Content Plan & CV
-    
-    PLANNING & NARRATIVE:
-    1.  **Hook:** Introduction to "Agentic AI" vs Traditional Chatbots.
-    2.  **The Pain (A Dor):** Visualizing inefficiencies in current retail operations (Manual tasks, Rework).
-    3.  **The Solution (O Agente):** Explaining the "Goal -> Monitor -> Act" loop using a flowchart.
-    4.  **Connectivity:** Polar Chart showing integration with ERP, WMS, CRM.
-    5.  **Impact (KPIs):** Radar Chart comparing Traditional vs Agentic performance.
-    6.  **Growth (Learning):** Line Chart showing efficiency over time (Machine Learning vs Human Fatigue).
-    7.  **Conclusion/CTA:** Mini case study and contact info for Marco Lucas Casserone.
-    
-    PALETTE: "Neon Tech"
-    - Background: Slate 900 (#0f172a)
-    - Primary Accent: Cyan 400 (#22d3ee)
-    - Secondary Accent: Violet 500 (#8b5cf6)
-    - Text: Slate 200 (#e2e8f0)
-    
-    CHART SELECTION (NO SVG):
-    - Inefficiencies: Bar Chart (Chart.js)
-    - Ecosystem: Polar Area Chart (Chart.js) - Good for showing distinct but connected parts.
-    - KPIs: Radar Chart (Chart.js) - Excellent for comparing multiple metrics between two entities.
-    - Learning Curve: Line Chart (Chart.js) - Best for trends over time.
-    - Process: HTML/CSS Flexbox Flowchart.
-    
-    CONFIRMATION: NO SVG used. NO Mermaid JS used. All graphics via Canvas or CSS.
-    -->
+      --accent-1: #1A6B78;         /* teal mais sóbrio */
+      --accent-1-dark: #155863;    /* teal hover */
+      --accent-1-lite: #9FD4D9;    /* teal claro para detalhes */
+      --accent-2: #B7A37A;         /* dourado desaturado */
+
+      --btn-bg: var(--accent-1);
+      --btn-bg-hover: var(--accent-1-dark);
+      --btn-text: #FFFFFF;
+    }
+
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+
+    /* Fundo sutil (menos “lavado”) */
+    .hero-bg {
+      background:
+        radial-gradient(circle at 78% 18%, rgba(26,107,120,0.06), transparent 38%),
+        radial-gradient(circle at 16% 82%, rgba(183,163,122,0.06), transparent 42%),
+        var(--bg-dark);
+    }
+
+    /* Navbar sólida (menos glass) */
+    .nav-solid {
+      background: var(--neutral-3);
+      border-bottom: 1px solid var(--neutral-2);
+    }
+
+    /* Glass mais contido */
+    .glass-card {
+      background: rgba(21, 30, 43, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--neutral-2);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(26,107,120,.5);
+      box-shadow: 0 14px 24px -12px rgba(0,0,0,.5);
+    }
+
+    /* Badge discreta */
+    .badge {
+      border: 1px solid rgba(26,107,120,.35);
+      background: rgba(26,107,120,.12);
+      color: var(--accent-1-lite);
+    }
+
+    /* Headline sólida + sublinhado premium */
+    .h1-strong { color: var(--text-main); }
+    .h1-accent { position: relative; color: var(--text-main); }
+    .h1-accent::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: -4px;
+      height: 6px;
+      background: linear-gradient(90deg, rgba(183,163,122,.35), rgba(26,107,120,.4));
+      border-radius: 3px;
+    }
+
+    .text-secondary { color: var(--text-dim); }
+
+    /* Chips com micro-borda dourada */
+    .chip { border: 1px solid rgba(183,163,122,0.2); }
+
+    /* Botões: hierarquia clara */
+    .btn-primary {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 20px -12px rgba(26,107,120,.6);
+    }
+    .btn-primary:hover { background: var(--btn-bg-hover); transform: translateY(-1px); }
+    .btn-secondary { border: 1px solid var(--neutral-2); background: rgba(255,255,255,0.03); color: var(--text-main); }
+    .btn-secondary:hover { border-color: rgba(183,163,122,.45); background: rgba(255,255,255,0.06); }
+
+    /* Menu */
+    .nav-link { color: #C8D1DD; transition: color .2s ease; }
+    .nav-link:hover { color: var(--accent-1-lite); }
+
+    /* Foco acessível */
+    .focus-ring { outline: none; }
+    .focus-ring:focus-visible { box-shadow: 0 0 0 3px rgba(26,107,120,0.45); border-radius: .5rem; }
+  </style>
 </head>
-<body class="antialiased">
+<body class="hero-bg antialiased">
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 px-6 py-3 md:py-4 flex justify-between items-center nav-solid" aria-label="Navegação principal">
+    <a href="#topo" class="text-xl md:text-2xl font-extrabold tracking-tight uppercase flex items-center gap-2 focus-ring">
+      <span class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: var(--accent-1);" aria-hidden="true">
+        <span class="text-white text-xs font-black">CS</span>
+      </span>
+      <span>Casserone <span style="color: var(--accent-1-lite)">Strategy</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider">
+      <a href="#pilares" class="nav-link focus-ring">Metodologia</a>
+      <a href="#servicos" class="nav-link focus-ring">Serviços</a>
+      <a href="#resultados" class="nav-link focus-ring">Resultados</a>
+      <a href="#faq" class="nav-link focus-ring">FAQ</a>
+      <a aria-label="Agendar Diagnóstico Executivo" target="_blank" rel="noopener"
+         href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20executivo%20para%20avaliarmos%20oportunidades%20de%20ganho."
+         class="btn-primary px-5 py-2.5 rounded-xl text-white focus-ring">Agendar</a>
+    </div>
+  </nav>
 
-    <!-- Header Section -->
-    <header class="w-full py-12 md:py-20 bg-slate-950 border-b border-slate-800">
-        <div class="container mx-auto px-4 text-center max-w-4xl">
-            <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-cyan-400 uppercase bg-slate-900 border border-cyan-900 rounded-full">
-                Business Intelligence & AI Strategy
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">
-                Agentes de <span class="text-gradient">IA no Varejo</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-400 font-light mb-8">
-                A evolução que vai redefinir as operações. <br class="hidden md:inline">
-                <span class="text-slate-500">Esqueça os chatbots. Estamos falando de autonomia real.</span>
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4 text-sm text-slate-500">
-                <span class="flex items-center justify-center gap-1">
-                    👤 <strong>Marco Lucas Casserone</strong>
-                </span>
-                <span class="hidden md:inline">•</span>
-                <span class="flex items-center justify-center gap-1">
-                    🚀 <strong>Especialista em BI & Performance</strong>
-                </span>
-            </div>
+  <!-- HERO -->
+  <header id="topo" class="pt-40 md:pt-48 pb-20 px-6 max-w-7xl mx-auto text-center">
+    <div class="badge inline-block px-4 py-1.5 mb-6 rounded-full text-sm font-bold uppercase tracking-widest">
+      Inteligência de Dados, IA & Performance
+    </div>
+
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+      <span class="h1-strong">Transformamos dados em decisões que</span>
+      <br class="hidden md:block" />
+      <span class="h1-accent">aumentam margem</span>,
+      <br class="hidden md:block" />
+      <span class="h1-accent">reduzem perdas</span> e aceleram crescimento.
+    </h1>
+
+    <p class="text-secondary text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
+      Estratégia, performance e <strong>IA agêntica</strong> para lideranças que precisam escalar com precisão — do diagnóstico à execução, com foco em impacto financeiro mensurável.
+    </p>
+
+    <ul class="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-left mb-10">
+      <li class="glass-card chip rounded-xl p-4"><span class="font-bold text-white">+ Margem e eficiência</span><br /><span class="text-secondary">Preço, giro e cobertura com decisões baseadas em dados.</span></li>
+      <li class="glass-card chip rounded-xl p-4"><span class="font-bold text-white">- Custos operacionais</span><br /><span class="text-secondary">Automação de processos repetitivos com agentes de IA.</span></li>
+      <li class="glass-card chip rounded-xl p-4"><span class="font-bold text-white">Decisão mais rápida</span><br /><span class="text-secondary">Alertas, simulações e BI conversacional.</span></li>
+    </ul>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a aria-label="Agendar Diagnóstico Executivo (retorno em 24h)" target="_blank" rel="noopener"
+         href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20executivo%20para%20avaliarmos%20oportunidades%20de%20ganho."
+         class="btn-primary px-8 py-4 rounded-2xl font-extrabold shadow-xl focus-ring">Agendar Diagnóstico Executivo</a>
+      <a href="#pilares" class="btn-secondary px-8 py-4 rounded-2xl font-extrabold focus-ring">Conhecer Metodologia</a>
+    </div>
+
+    <p class="text-secondary mt-3 text-sm">Retorno em até 24h.</p>
+  </header>
+
+  <main>
+    <!-- O QUE FAZEMOS -->
+    <section id="o-que-fazemos" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">O que fazemos em 5 segundos</h2>
+        <p class="text-secondary max-w-3xl mx-auto">Unimos estratégia, dados e IA para eliminar gargalos de rentabilidade. Implementamos decisões automatizadas, governança e visibilidade ponta a ponta — do sortimento ao financeiro.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Estratégia orientada por dados</h3><p class="text-secondary">Mapeamos oportunidades de ganho e definimos um roadmap pragmático.</p></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Eficiência operacional</h3><p class="text-secondary">Menos retrabalho, mais velocidade e previsibilidade de execução.</p></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">IA agêntica</h3><p class="text-secondary">Agentes substituem tarefas repetitivas e sugerem ações com segurança.</p></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Governança & integrações</h3><p class="text-secondary">Boas práticas, auditoria e integração com Oracle Retail, TOTVS e BI.</p></div>
+      </div>
+    </section>
+
+    <!-- QUEM ATENDEMOS -->
+    <section id="quem" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Quem atendemos & problemas que resolvemos</h2>
+        <p class="text-secondary max-w-3xl mx-auto">Atuação para Varejo, Indústria, Serviços/Startups e Finanças, com foco em melhorar margem, giro e previsibilidade.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Varejo</h3><ul class="text-secondary list-disc pl-5 space-y-1"><li>Ruptura e excesso de estoque</li><li>Sortimento e precificação</li><li>Giro e cobertura (GMROI)</li></ul></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Indústria</h3><ul class="text-secondary list-disc pl-5 space-y-1"><li>Perdas e OEE baixo</li><li>Planejamento e visibilidade E2E</li><li>Manutenção preditiva</li></ul></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Serviços & Startups</h3><ul class="text-secondary list-disc pl-5 space-y-1"><li>Churn e unit economics</li><li>Automação e escalabilidade</li><li>BI executivo</li></ul></div>
+        <div class="glass-card p-6 rounded-2xl"><h3 class="font-bold text-lg mb-2">Finanças</h3><ul class="text-secondary list-disc pl-5 space-y-1"><li>Aquisição e rentabilização</li><li>Risco e crédito</li><li>Modelagem preditiva</li></ul></div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS / OFERTAS -->
+    <section id="servicos" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Serviços e ofertas</h2>
+        <p class="text-secondary max-w-3xl mx-auto">Pacotes claros, práticos e orientados a resultado. Escolha por onde começar — nós conduzimos a execução.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card rounded-2xl p-6 flex flex-col"><h3 class="font-extrabold text-lg mb-2">Diagnóstico Executivo (14 dias)</h3><p class="text-secondary mb-4">Mapeamento de indicadores, gargalos e oportunidades com plano de ação.</p><ul class="text-secondary list-disc pl-5 space-y-1 mb-6 text-sm"><li>Arquitetura de decisão</li><li>Quick-wins priorizados</li><li>Roadmap trimestral</li></ul><a aria-label="Quero o Diagnóstico Executivo" target="_blank" rel="noopener" href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20quero%20agendar%20o%20Diagn%C3%B3stico%20Executivo%20(14%20dias)." class="btn-primary mt-auto inline-flex justify-center px-5 py-3 rounded-xl font-bold focus-ring">Quero avaliar este módulo</a></div>
+        <div class="glass-card rounded-2xl p-6 flex flex-col"><h3 class="font-extrabold text-lg mb-2">Performance & Growth Analytics</h3><p class="text-secondary mb-4">Modelos para elevar margem, reduzir custo e acelerar crescimento.</p><ul class="text-secondary list-disc pl-5 space-y-1 mb-6 text-sm"><li>Pricing e elasticidade</li><li>Propensão e alocação</li><li>Mix e sortimento</li></ul><a aria-label="Quero Performance & Growth Analytics" target="_blank" rel="noopener" href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20quero%20avaliar%20Performance%20%26%20Growth%20Analytics." class="btn-primary mt-auto inline-flex justify-center px-5 py-3 rounded-xl font-bold focus-ring">Quero avaliar este módulo</a></div>
+        <div class="glass-card rounded-2xl p-6 flex flex-col"><h3 class="font-extrabold text-lg mb-2">IA Agêntica</h3><p class="text-secondary mb-4">Automação de processos repetitivos e respostas a eventos com segurança.</p><ul class="text-secondary list-disc pl-5 space-y-1 mb-6 text-sm"><li>Auto-healing de ETL</li><li>BI conversacional</li><li>Recomendações acionáveis</li></ul><a aria-label="Quero IA Agêntica" target="_blank" rel="noopener" href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20quero%20implantar%20IA%20Ag%C3%AAntica%20para%20automatizar%20processos." class="btn-primary mt-auto inline-flex justify-center px-5 py-3 rounded-xl font-bold focus-ring">Quero avaliar este módulo</a></div>
+        <div class="glass-card rounded-2xl p-6 flex flex-col"><h3 class="font-extrabold text-lg mb-2">Data & AI Architecture</h3><p class="text-secondary mb-4">Plataformas e governança para escalar dados e IA com custo otimizado.</p><ul class="text-secondary list-disc pl-5 space-y-1 mb-6 text-sm"><li>Boas práticas e auditoria</li><li>Integrações (Oracle, TOTVS)</li><li>Observabilidade de dados</li></ul><a aria-label="Quero Data & AI Architecture" target="_blank" rel="noopener" href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20quero%20avaliar%20Data%20%26%20AI%20Architecture." class="btn-primary mt-auto inline-flex justify-center px-5 py-3 rounded-xl font-bold focus-ring">Quero avaliar este módulo</a></div>
+      </div>
+      <div class="text-center mt-10">
+        <a aria-label="Agendar Diagnóstico Executivo (retorno em 24h)" target="_blank" rel="noopener"
+           href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20executivo%20para%20avaliarmos%20oportunidades%20de%20ganho."
+           class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-extrabold focus-ring">Agendar Diagnóstico Executivo <span class="text-sm opacity-80 font-bold">(retorno em 24h)</span></a>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA (PILARES) -->
+    <section id="pilares" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Metodologia: Process · People · Platform</h2>
+        <p class="text-secondary max-w-3xl mx-auto">Aceleração de valor com abordagem holística. Processos ajustados, pessoas capacitadas e plataformas inteligentes.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-card p-8 rounded-2xl"><h3 class="font-extrabold text-lg mb-2">Process</h3><p class="text-secondary">Identificação de <em>high-value use cases</em>, desenho de fluxos decisórios e remoção de gargalos de margem.</p></div>
+        <div class="glass-card p-8 rounded-2xl"><h3 class="font-extrabold text-lg mb-2">People</h3><p class="text-secondary">Democratização de dados, capacitação e governança para adoção executiva e sustentada.</p></div>
+        <div class="glass-card p-8 rounded-2xl"><h3 class="font-extrabold text-lg mb-2">Platform</h3><p class="text-secondary">Data & AI Platform com custo otimizado, integração com legados e resposta em tempo real.</p></div>
+      </div>
+    </section>
+
+    <!-- COMPARATIVO IA AGÊNTICA -->
+    <section id="ia-agente" class="py-16 md:py-24 px-6" style="background: rgba(18,25,39,.5)">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Evolução para <span style="color: var(--accent-1-lite)">IA agêntica</span></h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 glass-card rounded-xl"><i class="fas fa-check-circle" style="color:#34d399" aria-hidden="true"></i><div><h3 class="font-bold">Auto-healing de ETL</h3><p class="text-secondary text-sm">Agentes detectam e corrigem falhas de pipeline sem intervenção manual.</p></div></div>
+            <div class="flex items-start gap-4 p-4 glass-card rounded-xl"><i class="fas fa-check-circle" style="color:#34d399" aria-hidden="true"></i><div><h3 class="font-bold">BI conversacional</h3><p class="text-secondary text-sm">Pergunte em linguagem natural e receba respostas com contexto e ação.</p></div></div>
+          </div>
         </div>
-    </header>
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+          <table class="w-full text-left text-sm">
+            <thead style="background: rgba(255,255,255,0.05)"><tr><th class="p-4">Aspecto</th><th class="p-4">Tradicional</th><th class="p-4" style="color: var(--accent-1-lite)">Estratégia CS</th></tr></thead>
+            <tbody class="divide-y" style="--tw-divide-opacity:1; border-color: var(--neutral-2);">
+              <tr><td class="p-4">Reporting</td><td class="p-4 italic text-slate-500">Estático</td><td class="p-4 font-bold" style="color:#34d399">Interativo e acionável</td></tr>
+              <tr><td class="p-4">Saneamento</td><td class="p-4 italic text-slate-500">Manual</td><td class="p-4 font-bold" style="color:#34d399">Autônomo (auto-healing)</td></tr>
+              <tr><td class="p-4">Foco</td><td class="p-4 italic text-slate-500">Retrospectivo</td><td class="p-4 font-bold" style="color:#34d399">Preditivo</td></tr>
+              <tr><td class="p-4">Tempo de resposta</td><td class="p-4 italic text-slate-500">Lento</td><td class="p-4 font-bold" style="color:#34d399">Near real-time</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-    <!-- Main Content Grid -->
-    <main class="container mx-auto px-4 py-12 space-y-16">
+    <!-- RESULTADOS & MÉTRICAS -->
+    <section id="resultados" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Resultados que importam</h2>
+        <p class="text-secondary max-w-3xl mx-auto">Indicadores traduzidos para impacto de negócio. Exemplos ilustrativos para decisão executiva.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-6 rounded-2xl">
+          <p class="text-sm text-slate-400 uppercase font-bold tracking-wider mb-3">Marketing</p>
+          <h3 class="text-3xl font-extrabold mb-2">ROI <span style="color:#34d399">+35%</span></h3>
+          <p class="text-secondary">Otimização de mídia com modelos de propensão (mesmo budget, mais receita).</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl">
+          <p class="text-sm text-slate-400 uppercase font-bold tracking-wider mb-3">Estoque</p>
+          <h3 class="text-3xl font-extrabold mb-2">GMROI <span style="color:#34d399">High Impact</span></h3>
+          <p class="text-secondary">Mais margem com o mesmo investimento em estoque (mix, preço e cobertura).</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl">
+          <p class="text-sm text-slate-400 uppercase font-bold tracking-wider mb-3">Operações</p>
+          <h3 class="text-3xl font-extrabold mb-2">Agilidade <span style="color:#34d399">2×</span></h3>
+          <p class="text-secondary">Tempo de resposta acelerado com dashboards executivos e alertas.</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a aria-label="Agendar Diagnóstico Executivo (retorno em 24h)" target="_blank" rel="noopener"
+           href="https://wa.me/5511947639729?text=Ol%C3%A1%20Marco%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20executivo%20para%20avaliarmos%20oportunidades%20de%20ganho."
+           class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-extrabold focus-ring">Agendar Diagnóstico Executivo</a>
+        <p class="text-slate-500 text-sm mt-2">Resultados variam por contexto. Exemplos ilustrativos.</p>
+      </div>
+    </section>
 
-        <!-- SECTION 1: The Pain (A Dor do Varejo) -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <div class="chart-container">
-                    <canvas id="inefficiencyChart"></canvas>
-                </div>
-                <p class="text-center text-xs text-slate-500 mt-2 italic">Estimativa de perda de tempo operacional em varejo tradicional.</p>
-            </div>
-            <div class="order-1 md:order-2 space-y-4">
-                <h2 class="text-2xl font-bold text-white border-l-4 border-violet-500 pl-4">O Gargalo Operacional</h2>
-                <p class="text-slate-300 leading-relaxed">
-                    A maioria das operações de varejo ainda sofre com a desconexão. Processos manuais, sistemas que não "conversam" (ERP vs WMS) e o excesso de planilhas geram um ciclo vicioso de retrabalho e decisões lentas.
-                </p>
-                <div class="grid grid-cols-1 gap-3 mt-4">
-                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
-                        <h3 class="text-red-400 font-bold mb-1">⚠️ Sintomas Comuns</h3>
-                        <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
-                            <li>Ruptura identificada tardiamente</li>
-                            <li>Excesso de estoque parado</li>
-                            <li>Equipes focadas em apagar incêndios</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: What is an Agent? (Concept Flow) -->
-        <section class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-white mb-4">Chatbot vs. <span class="text-cyan-400">Agente de IA</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">
-                    A diferença fundamental é a autonomia. Um chatbot espera uma pergunta. Um agente persegue um objetivo.
-                </p>
-            </div>
-
-            <!-- CSS Flowchart (No SVG) -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center justify-center max-w-4xl mx-auto desktop-horizontal-flow">
-                
-                <!-- Step 1 -->
-                <div class="bg-slate-900 border border-slate-600 p-6 rounded-xl text-center shadow-lg relative">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-violet-600 text-white text-xs font-bold px-2 py-1 rounded">START</div>
-                    <div class="text-2xl mb-2">🎯</div>
-                    <h4 class="font-bold text-white">Objetivo</h4>
-                    <p class="text-xs text-slate-400 mt-1">"Manter ruptura < 2%"</p>
-                </div>
-
-                <!-- Arrow -->
-                <div class="flow-arrow">→</div>
-
-                <!-- Step 2 -->
-                <div class="bg-slate-900 border border-cyan-900 p-6 rounded-xl text-center shadow-lg hover-card transition-all duration-300">
-                    <div class="text-2xl mb-2">👁️</div>
-                    <h4 class="font-bold text-white">Monitorar</h4>
-                    <p class="text-xs text-slate-400 mt-1">Lê ERP/Estoque 24/7</p>
-                </div>
-
-                <!-- Arrow -->
-                <div class="flow-arrow">→</div>
-
-                <!-- Step 3 -->
-                <div class="bg-slate-900 border border-cyan-500 p-6 rounded-xl text-center shadow-[0_0_15px_rgba(6,182,212,0.3)] transform scale-105 z-10">
-                    <div class="text-2xl mb-2">🧠</div>
-                    <h4 class="font-bold text-cyan-400">Decidir & Agir</h4>
-                    <p class="text-xs text-slate-400 mt-1">Dispara reposição sozinho</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 3: Connectivity & Ecosystem -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-4">
-                <h2 class="text-2xl font-bold text-white border-l-4 border-cyan-400 pl-4">O Maestro do Ecossistema</h2>
-                <p class="text-slate-300 leading-relaxed">
-                    Agentes de IA não são ferramentas isoladas. Eles atuam como a camada de inteligência que conecta seus sistemas legados. Eles orquestram o fluxo de informações do estoque até o atendimento ao cliente.
-                </p>
-                <p class="text-slate-400 text-sm">
-                    Imagine um "super-usuário" que tem acesso simultâneo ao seu ERP, CRM e WMS, cruzando dados em tempo real para encontrar oportunidades que humanos deixariam passar.
-                </p>
-            </div>
-            <div class="chart-container">
-                <canvas id="ecosystemChart"></canvas>
-            </div>
-        </section>
-
-        <!-- SECTION 4: KPI Impact (Radar Comparison) -->
-        <section class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-            <h2 class="text-center text-2xl font-bold text-white mb-8">Impacto nos KPIs: <span class="text-slate-500">Humano vs. Agente</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="chart-container">
-                    <canvas id="kpiRadarChart"></canvas>
-                </div>
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-slate-800 p-4 rounded-lg border-l-4 border-cyan-400">
-                        <h4 class="font-bold text-white">Velocidade de Reposição</h4>
-                        <p class="text-sm text-slate-400">Agentes detectam a baixa de estoque instantaneamente e geram pré-pedidos, reduzindo o lead time drasticamente.</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg border-l-4 border-violet-500">
-                        <h4 class="font-bold text-white">Previsão de Demanda</h4>
-                        <p class="text-sm text-slate-400">Análise multivariável (clima, promoções, histórico) gera previsões muito mais assertivas que médias móveis simples.</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg border-l-4 border-pink-500">
-                        <h4 class="font-bold text-white">Satisfação (SLA)</h4>
-                        <p class="text-sm text-slate-400">Menos ruptura significa cliente encontrando o produto. O SLA de atendimento sobe naturalmente.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: Scalability & Learning (Line Chart) -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-             <div class="order-2 md:order-1 chart-container">
-                <canvas id="learningCurveChart"></canvas>
-            </div>
-            <div class="order-1 md:order-2 space-y-4">
-                <h2 class="text-2xl font-bold text-white border-l-4 border-green-400 pl-4">O Ciclo Virtuoso de Valor</h2>
-                <p class="text-slate-300 leading-relaxed">
-                    Humanos têm um limite físico de processamento e sofrem fadiga. Agentes de IA operam 24/7 e, mais importante, <strong>aprendem com cada interação</strong>.
-                </p>
-                <p class="text-slate-300">
-                    Quanto mais o agente opera, mais dados ele processa. Quanto mais dados, mais refinado fica seu modelo de decisão, gerando um crescimento exponencial de eficiência operacional ao longo do tempo.
-                </p>
-            </div>
-        </section>
-
-        <!-- SECTION 6: Mini Case & CTA -->
-        <section class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 border border-slate-700 text-center shadow-2xl">
-            <h3 class="text-xl text-cyan-400 font-bold mb-2 uppercase tracking-wide">Mini Case do Varejo</h3>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Resultados na Prática</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p class="text-4xl font-extrabold text-green-400 mb-2">-18%</p>
-                    <p class="text-slate-400 font-medium">Ruptura de Estoque</p>
-                </div>
-                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p class="text-4xl font-extrabold text-cyan-400 mb-2">+25%</p>
-                    <p class="text-slate-400 font-medium">Giro de Produtos</p>
-                </div>
-                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p class="text-4xl font-extrabold text-violet-400 mb-2">0%</p>
-                    <p class="text-slate-400 font-medium">Aumento de Estoque Parado</p>
-                    <p class="text-xs text-slate-600 mt-1">(Eficiência real)</p>
-                </div>
-            </div>
-
-            <div class="max-w-2xl mx-auto bg-slate-900/80 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-                <p class="text-lg text-white mb-6">
-                    Sua operação está pronta para sair do modo manual e entrar na era agêntica?
-                    <br>Vamos transformar seus dados em decisões autônomas.
-                </p>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                    <div class="text-left">
-                        <p class="text-white font-bold text-lg">Marco Lucas Casserone</p>
-                        <p class="text-slate-400 text-sm">Consultor de BI & Estratégia de Dados</p>
-                    </div>
-                    <a href="https://linkedin.com/in/lucascasserone" target="_blank" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg shadow-cyan-500/20">
-                        Conectar no LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-slate-950 py-8 text-center border-t border-slate-800">
-        <p class="text-slate-600 text-sm">© 2026 Marco Lucas Casserone. Todos os direitos reservados.</p>
-        <p class="text-slate-700 text-xs mt-2">Design generated for Data Visualization Portfolio.</p>
-    </footer>
-
-    <!-- Scripts for Charts -->
-    <script>
-        // --- UTILITY: Label Wrapping Function (16 char limit) ---
-        function formatLabel(str, maxLen = 16) {
-            if (str.length <= maxLen) return str;
-            const words = str.split(' ');
-            const lines = [];
-            let currentLine = words[0];
-
-            for (let i = 1; i < words.length; i++) {
-                if ((currentLine + " " + words[i]).length <= maxLen) {
-                    currentLine += " " + words[i];
-                } else {
-                    lines.push(currentLine);
-                    currentLine = words[i];
-                }
-            }
-            lines.push(currentLine);
-            return lines;
-        }
-
-        // --- GLOBAL: Tooltip Callback Configuration ---
-        const globalTooltipPlugin = {
-            tooltip: {
-                backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                titleColor: '#fff',
-                bodyColor: '#cbd5e1',
-                borderColor: '#334155',
-                borderWidth: 1,
-                padding: 10,
-                callbacks: {
-                    title: function(tooltipItems) {
-                        const item = tooltipItems[0];
-                        let label = item.chart.data.labels[item.dataIndex];
-                        if (Array.isArray(label)) {
-                            return label.join(' ');
-                        } else {
-                            return label;
-                        }
-                    }
-                }
-            }
-        };
-
-        // --- GLOBAL: Common Chart Options ---
-        Chart.defaults.color = '#94a3b8';
-        Chart.defaults.font.family = "'Inter', sans-serif";
-
-        // 1. INEFFICIENCY CHART (Bar)
-        const ctxInefficiency = document.getElementById('inefficiencyChart').getContext('2d');
-        new Chart(ctxInefficiency, {
-            type: 'bar',
-            data: {
-                labels: [
-                    formatLabel('Tarefas Manuais Repetitivas'),
-                    formatLabel('Erros de Digitação & Retrabalho'),
-                    formatLabel('Análise de Dados Desconectados'),
-                    formatLabel('Comunicação entre Departamentos')
-                ],
-                datasets: [{
-                    label: 'Horas Perdidas/Semana (Equipe)',
-                    data: [45, 20, 30, 15],
-                    backgroundColor: [
-                        'rgba(239, 68, 68, 0.7)', // Red
-                        'rgba(249, 115, 22, 0.7)', // Orange
-                        'rgba(234, 179, 8, 0.7)',  // Yellow
-                        'rgba(100, 116, 139, 0.7)' // Slate
-                    ],
-                    borderColor: [
-                        'rgba(239, 68, 68, 1)',
-                        'rgba(249, 115, 22, 1)',
-                        'rgba(234, 179, 8, 1)',
-                        'rgba(100, 116, 139, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    ...globalTooltipPlugin
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { color: 'rgba(148, 163, 184, 0.1)' }
-                    },
-                    x: {
-                        grid: { display: false }
-                    }
-                }
-            }
-        });
-
-        // 2. ECOSYSTEM CHART (Polar Area)
-        const ctxEcosystem = document.getElementById('ecosystemChart').getContext('2d');
-        new Chart(ctxEcosystem, {
-            type: 'polarArea',
-            data: {
-                labels: [
-                    formatLabel('ERP (Gestão Integrada)'),
-                    formatLabel('CRM (Gestão de Clientes)'),
-                    formatLabel('WMS (Gestão de Estoque)'),
-                    formatLabel('E-commerce Platform'),
-                    formatLabel('Logística & Entrega')
-                ],
-                datasets: [{
-                    label: 'Nível de Integração do Agente',
-                    data: [95, 80, 90, 85, 75],
-                    backgroundColor: [
-                        'rgba(34, 211, 238, 0.6)', // Cyan
-                        'rgba(139, 92, 246, 0.6)', // Violet
-                        'rgba(59, 130, 246, 0.6)', // Blue
-                        'rgba(236, 72, 153, 0.6)', // Pink
-                        'rgba(16, 185, 129, 0.6)'  // Emerald
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { 
-                        position: 'right',
-                        labels: { boxWidth: 10, font: { size: 10 } }
-                    },
-                    ...globalTooltipPlugin
-                },
-                scales: {
-                    r: {
-                        ticks: { display: false },
-                        grid: { color: 'rgba(148, 163, 184, 0.1)' },
-                        pointLabels: { display: false } // Hide labels on chart, rely on legend for clean look
-                    }
-                }
-            }
-        });
-
-        // 3. KPI RADAR CHART
-        const ctxRadar = document.getElementById('kpiRadarChart').getContext('2d');
-        new Chart(ctxRadar, {
-            type: 'radar',
-            data: {
-                labels: [
-                    formatLabel('Velocidade de Reação'),
-                    formatLabel('Precisão de Previsão'),
-                    formatLabel('Disponibilidade 24/7'),
-                    formatLabel('Redução de Custos'),
-                    formatLabel('Escalabilidade')
-                ],
-                datasets: [{
-                    label: 'Operação Tradicional (Humana)',
-                    data: [40, 60, 20, 50, 30],
-                    fill: true,
-                    backgroundColor: 'rgba(148, 163, 184, 0.2)',
-                    borderColor: 'rgba(148, 163, 184, 1)',
-                    pointBackgroundColor: 'rgba(148, 163, 184, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(148, 163, 184, 1)'
-                }, {
-                    label: 'Operação com Agente IA',
-                    data: [95, 90, 100, 85, 95],
-                    fill: true,
-                    backgroundColor: 'rgba(34, 211, 238, 0.2)',
-                    borderColor: 'rgba(34, 211, 238, 1)',
-                    pointBackgroundColor: 'rgba(34, 211, 238, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(34, 211, 238, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { labels: { color: '#cbd5e1' } },
-                    ...globalTooltipPlugin
-                },
-                scales: {
-                    r: {
-                        angleLines: { color: 'rgba(148, 163, 184, 0.1)' },
-                        grid: { color: 'rgba(148, 163, 184, 0.1)' },
-                        pointLabels: { color: '#94a3b8', font: { size: 11 } },
-                        ticks: { display: false }
-                    }
-                }
-            }
-        });
-
-        // 4. LEARNING CURVE CHART (Line)
-        const ctxLearning = document.getElementById('learningCurveChart').getContext('2d');
-        new Chart(ctxLearning, {
-            type: 'line',
-            data: {
-                labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6'],
-                datasets: [{
-                    label: 'Eficiência Humana (Estável)',
-                    data: [60, 62, 61, 63, 62, 60], // Plateau/Fatigue
-                    borderColor: 'rgba(148, 163, 184, 0.8)',
-                    borderDash: [5, 5],
-                    tension: 0.3
-                }, {
-                    label: 'Eficiência Agente IA (Aprendizado)',
-                    data: [50, 65, 78, 88, 94, 98], // Exponential growth
-                    borderColor: 'rgba(139, 92, 246, 1)', // Violet
-                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'top' },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false,
-                        ...globalTooltipPlugin.tooltip
-                    }
-                },
-                interaction: {
-                    mode: 'nearest',
-                    axis: 'x',
-                    intersect: false
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: { display: true, text: 'Pontuação de Eficiência (0-100)' },
-                        grid: { color: 'rgba(148, 163, 184, 0.1)' }
-                    },
-                    x: {
-                        grid: { color: 'rgba(148, 163, 184, 0.05)' }
-                    }
-                }
-            }
-        });
-
-    </script>
-</body>
-</html>
+    <!-- SIMULADOR DE EFICIÊNCIA -->
+    <section id="roi" class="py-16 md:py-24 px-6 max-w-4xl mx-auto">
